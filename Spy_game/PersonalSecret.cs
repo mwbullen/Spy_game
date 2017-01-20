@@ -4,9 +4,9 @@ namespace AssemblyCSharp
 {
 	public class PersonalSecret
 	{
-		enum secretType{Adulterer, Embezzler, Thief,Murderer};
+		public enum secretType{Adulterer, Embezzler, Thief,Murderer};
 
-		public secretType SecretType;;
+		public secretType SecretType;
 		public PersonalSecret ()
 		{
 		}

@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿
 using System.Collections;
 using AssemblyCSharp;
 
-public class Operative : MonoBehaviour {
+public class Operative  {
 	OperativeInfo Info = new OperativeInfo();
 
 	// Use this for initialization

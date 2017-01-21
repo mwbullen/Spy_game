@@ -39,6 +39,8 @@
     <Compile Include="Operative.cs" />
     <Compile Include="OperativeInfo.cs" />
     <Compile Include="PersonalSecret.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="LoadSave.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

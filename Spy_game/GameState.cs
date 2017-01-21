@@ -15,6 +15,8 @@ namespace Spy_game
 		public GameState()
 		{
 			currentOperatives = new List<Operative>();
+			currentOperatives.Add(generateNewRandomOperative());
+
 		}
 
 		public void performTurn()
@@ -48,7 +50,12 @@ namespace Spy_game
 
 		public Operative generateNewRandomOperative()
 		{
-			return null;
+			Random r = new Random();
+
+			int randomNumber = r.Next(1, 100);
+
+			return new Operative(randomNumber.ToString());
+
 		}
 
 		public void initializeInstituitions()

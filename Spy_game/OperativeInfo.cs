@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AssemblyCSharp
-{
+[Serializable]
 	public class OperativeInfo
 	{
 		//personal info
@@ -30,5 +29,5 @@ namespace AssemblyCSharp
 		{
 		}
 	}
-}
+
 

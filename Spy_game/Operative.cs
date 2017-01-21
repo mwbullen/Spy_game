@@ -6,13 +6,8 @@ using System.Collections;
 public class Operative  {
 	public OperativeInfo Info = new OperativeInfo();
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public Operative(string name)
+	{
+		Info.Name = name;
 	}
 }

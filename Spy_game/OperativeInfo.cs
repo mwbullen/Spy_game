@@ -8,6 +8,11 @@ namespace AssemblyCSharp
 		//personal info
 		public string Name;
 
+		//employment info
+		public Institution Employer;
+		public int Rank;
+		public Operative Boss;
+
 		//biographic info
 		public bool Married;
 		public int NumberChildren;
@@ -15,11 +20,6 @@ namespace AssemblyCSharp
 
 		//secrets (blackmail info)
 		public List<PersonalSecret> secrets;
-
-		//employment info
-		public Institution Employer;
-		public int Rank;
-		public Operative Boss;
 
 		//personality traits
 		public float Cooperation;

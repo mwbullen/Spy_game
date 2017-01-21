@@ -7,6 +7,9 @@ namespace Spy_game
 	public class GameState
 	{
 		public List<Operative> currentOperatives;
+		public List<Institution> allInstitutions;
+
+		string[] institutionNames = { "Security Services", "Housing Authority", "Automotive Registry", "National Bank", "Military Procurement", "Education Ministry", "Information and Press", "Construction", "Department of Prisons" };
 
 
 		public GameState()
@@ -46,6 +49,20 @@ namespace Spy_game
 		public Operative generateNewRandomOperative()
 		{
 			return null;
+		}
+
+		public void initializeInstituitions()
+		{
+			List<Institution> newInstList = new List<Institution>();
+
+			foreach (string instName in institutionNames)
+			{
+				Institution i = new Institution(instName);
+
+				newInstList.Add(i);
+			}
+
+			allInstitutions = newInstList;
 		}
 	}
 

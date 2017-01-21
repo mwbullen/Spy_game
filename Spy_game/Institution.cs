@@ -1,12 +1,16 @@
 ﻿using System;
 
-namespace AssemblyCSharp
-{
+	[Serializable]
 	public class Institution
 	{
-		public Institution ()
+		public string Name;
+
+		public Institution (string newName)
 		{
+			Name = newName;
+
 		}
+
 	}
-}
+
 

@@ -5,10 +5,12 @@ namespace Spy_game
 {
 	class MainClass
 	{
-		public GameState currentGameState = new GameState();
+		public static GameState currentGameState = null;
 
 		public static void Main(string[] args)
 		{
+			initGame();
+
 			string inputStr = "";
 
 			while (inputStr != "x")
@@ -23,6 +25,20 @@ namespace Spy_game
 
 			return Console.ReadLine();
 
+		}
+
+		public static void initGame()
+		{
+			currentGameState = LoadSave.loadSavedGame();
+			if (currentGameState == null)
+			{
+				Console.WriteLine("Creating new game");
+				currentGameState = new GameState();
+				LoadSave.saveGameState(currentGameState);
+			}
+			else {
+				Console.WriteLine("Loading saved game");
+			}
 		}
 	}
 }

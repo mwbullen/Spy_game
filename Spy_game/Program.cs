@@ -15,7 +15,15 @@ namespace Spy_game
 
 			while (inputStr != "x")
 			{
-			 inputStr = getUserInput("Enter action");
+			 
+				inputStr = getUserInput("Enter action");
+
+				switch (inputStr.ToUpper())
+				{
+					case "L":
+						currentGameState.listCurrentOperatives();
+					break;
+				}
 			}
 		}
 

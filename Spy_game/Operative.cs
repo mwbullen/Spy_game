@@ -1,9 +1,11 @@
-﻿
+﻿using System;
 using System.Collections;
 using AssemblyCSharp;
 
+[Serializable]
+
 public class Operative  {
-	OperativeInfo Info = new OperativeInfo();
+	public OperativeInfo Info = new OperativeInfo();
 
 	// Use this for initialization
 	void Start () {

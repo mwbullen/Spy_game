@@ -11,6 +11,21 @@ namespace Spy_game
 
 		public GameState()
 		{
+			currentOperatives = new List<Operative>();
+		}
+
+		public void listCurrentOperatives()
+		{
+			if (currentOperatives.Count == 0)
+			{
+				Console.WriteLine("No agents available");
+			}
+			else {
+				foreach (Operative agent in currentOperatives)
+				{
+					Console.WriteLine(agent.Info.Name);
+				}
+			}
 		}
 	}
 

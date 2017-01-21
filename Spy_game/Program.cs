@@ -20,9 +20,15 @@ namespace Spy_game
 
 				switch (inputStr.ToUpper())
 				{
+
 					case "L":
 						currentGameState.listCurrentOperatives();
 					break;
+
+					case " ":
+						currentGameState.performTurn();
+						break;
+						
 				}
 			}
 		}

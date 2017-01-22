@@ -9,6 +9,8 @@ namespace Spy_game
 		public List<Operative> currentOperatives;
 		public List<Institution> allInstitutions;
 
+
+
 		string[] institutionNames = { "Security Services", "Housing Authority", "Automotive Registry", "National Bank", "Military Procurement", "Education Ministry", "Information and Press", "Construction", "Department of Prisons" };
 
 
@@ -17,7 +19,9 @@ namespace Spy_game
 			currentOperatives = new List<Operative>();
 			currentOperatives.Add(generateNewRandomOperative());
 
+
 		}
+
 
 		public void performTurn()
 		{

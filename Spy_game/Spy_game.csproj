@@ -41,6 +41,7 @@
     <Compile Include="PersonalSecret.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="LoadSave.cs" />
+    <Compile Include="InputManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

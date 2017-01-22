@@ -6,6 +6,7 @@ namespace Spy_game
 	class MainClass
 	{
 		public static GameState currentGameState = null;
+		public static InputManager inputManager = new InputManager();
 
 		public static void Main(string[] args)
 		{
@@ -14,22 +15,33 @@ namespace Spy_game
 			string inputStr = "";
 
 			while (inputStr != "x")
-			{
-			 
+			{			 
 				inputStr = getUserInput("Enter action");
 
-				switch (inputStr.ToUpper())
+				if (inputStr == "")
 				{
-
-					case "L":
-						currentGameState.listCurrentOperatives();
-					break;
-
-					case " ":
-						currentGameState.performTurn();
-						break;
-						
+					currentGameState.performTurn();
 				}
+				else
+				{
+					
+
+					InputManager.standardAction action = (InputManager.standardAction)inputManager.standardActionsHT[inputStr.ToUpper()];
+
+					switch (action)
+					{
+
+						case InputManager.standardAction.ListAgents:
+							currentGameState.listCurrentOperatives();
+							break;
+
+						case InputManager.standardAction.NextTurn:
+							currentGameState.performTurn();
+							break;
+					}
+				}
+
+
 			}
 		}
 

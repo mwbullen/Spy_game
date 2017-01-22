@@ -47,7 +47,7 @@ namespace Spy_game
 			else {
 				foreach (Operative agent in currentOperatives)
 				{
-					Console.WriteLine(agent.Info.Name);
+					Console.WriteLine(agent.Name);
 				}
 			}
 		}

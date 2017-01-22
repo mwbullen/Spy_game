@@ -31,7 +31,13 @@ namespace Spy_game
 			FileStream fs = new FileStream(saveFilePath, FileMode.Create);
 
 			bf.Serialize(fs, gameState);
+			fs.Close();
+		}
 
+		public static void newGame()
+		{
+			File.Delete(saveFilePath);
+			loadSavedGame();
 		}
 	}
 }

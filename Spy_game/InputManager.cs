@@ -5,7 +5,7 @@ namespace Spy_game
 	public class InputManager
 	{
 		public Hashtable standardActionsHT;
-		public enum standardAction { Exit, NextTurn, ListAgents }
+		public enum standardAction { Exit, NextTurn, ListAgents, NewGame }
 
 		public InputManager()
 		{
@@ -19,6 +19,7 @@ namespace Spy_game
 			standardActionsHT.Add("X", standardAction.Exit);
 			standardActionsHT.Add("null", standardAction.NextTurn);
 			standardActionsHT.Add("L", standardAction.ListAgents);
+			standardActionsHT.Add("NEW", standardAction.ListAgents);
 		}
 
 	}

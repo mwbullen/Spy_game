@@ -38,6 +38,9 @@ namespace Spy_game
 						case InputManager.standardAction.NextTurn:
 							currentGameState.performTurn();
 							break;
+						case InputManager.standardAction.NewGame:
+							LoadSave.newGame();
+							break;
 					}
 				}
 

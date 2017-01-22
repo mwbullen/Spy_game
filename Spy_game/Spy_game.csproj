@@ -36,7 +36,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Action.cs" />
     <Compile Include="Institution.cs" />
-    <Compile Include="Operative.cs" />
     <Compile Include="OperativeInfo.cs" />
     <Compile Include="PersonalSecret.cs" />
     <Compile Include="GameState.cs" />

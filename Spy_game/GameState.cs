@@ -17,7 +17,7 @@ namespace Spy_game
 		public GameState()
 		{
 			currentOperatives = new List<Operative>();
-			currentOperatives.Add(generateNewRandomOperative());
+			currentOperatives.Add(new Operative());
 
 
 		}
@@ -47,20 +47,13 @@ namespace Spy_game
 			else {
 				foreach (Operative agent in currentOperatives)
 				{
-					Console.WriteLine(agent.Name);
+					//Console.WriteLine(agent.Name);
+					agent.printOperativeDetails();
 				}
 			}
 		}
 
-		public Operative generateNewRandomOperative()
-		{
-			Random r = new Random();
 
-			int randomNumber = r.Next(1, 100);
-
-			return new Operative(randomNumber.ToString());
-
-		}
 
 		public void initializeInstituitions()
 		{
@@ -68,9 +61,9 @@ namespace Spy_game
 
 			foreach (string instName in institutionNames)
 			{
-				Institution i = new Institution(instName);
+			//	Institution i = new Institution(instName);
 
-				newInstList.Add(i);
+			//	newInstList.Add(i);
 			}
 
 			allInstitutions = newInstList;

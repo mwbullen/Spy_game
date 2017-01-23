@@ -5,11 +5,13 @@
 	{
 		public string Name;
 
-		public Institution (string newName)
+		public Institution ()
 		{
-			Name = newName;
+			Name = "Military Procurement Office";
 
 		}
+
+		
 
 	}
 

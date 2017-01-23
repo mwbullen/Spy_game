@@ -16,21 +16,12 @@ namespace Spy_game
 
 			while (inputStr != "x")
 			{			 
-				inputStr = getUserInput("Enter action");
+				inputStr = getUserInput(inputManager.getActionPrompts);
 
-				if (inputStr == "")
-				{
-					currentGameState.performTurn();
-				}
-				else
-				{
-					
+				InputManager.standardAction action =  inputManager.processInput(inputStr);
 
-					InputManager.standardAction action = (InputManager.standardAction)inputManager.standardActionsHT[inputStr.ToUpper()];
-
-					switch (action)
+				switch (action)
 					{
-
 						case InputManager.standardAction.ListAgents:
 							currentGameState.listCurrentOperatives();
 							break;
@@ -41,11 +32,12 @@ namespace Spy_game
 						case InputManager.standardAction.NewGame:
 							LoadSave.newGame();
 							break;
+						case InputManager.standardAction.CommandNotFound:
+							Console.WriteLine("Command not found: " + inputStr);
+							break;
+						
 					}
 				}
-
-
-			}
 		}
 
 		public static string getUserInput(string prompt)

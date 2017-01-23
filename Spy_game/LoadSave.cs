@@ -37,7 +37,9 @@ namespace Spy_game
 		public static void newGame()
 		{
 			File.Delete(saveFilePath);
-			loadSavedGame();
+			MainClass.initGame();
+
+			Console.WriteLine("New game created");
 		}
 	}
 }

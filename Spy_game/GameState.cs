@@ -9,16 +9,11 @@ namespace Spy_game
 		public List<Operative> currentOperatives;
 		public List<Institution> allInstitutions;
 
-
-
-		string[] institutionNames = { "Security Services", "Housing Authority", "Automotive Registry", "National Bank", "Military Procurement", "Education Ministry", "Information and Press", "Construction", "Department of Prisons" };
-
-
 		public GameState()
 		{
+			initializeInstituitions();
 			currentOperatives = new List<Operative>();
-			currentOperatives.Add(new Operative());
-
+			currentOperatives.Add(new Operative(this));
 
 		}
 
@@ -30,11 +25,11 @@ namespace Spy_game
 			//gather responses & intelligence
 
 			Console.WriteLine("Delivering messages to dead drops");
-			System.Threading.Thread.Sleep(2000);
+			//System.Threading.Thread.Sleep(2000);
 			Console.WriteLine("Investigating Ministry of Defense");
-			System.Threading.Thread.Sleep(2000);
+			//System.Threading.Thread.Sleep(2000);
 			Console.WriteLine("Retrieving dead drop responses");
-			System.Threading.Thread.Sleep(2000);
+			//System.Threading.Thread.Sleep(2000);
 
 		}
 
@@ -45,6 +40,7 @@ namespace Spy_game
 				Console.WriteLine("No agents available");
 			}
 			else {
+				Console.WriteLine("Current agents:");
 				foreach (Operative agent in currentOperatives)
 				{
 					//Console.WriteLine(agent.Name);
@@ -53,20 +49,17 @@ namespace Spy_game
 			}
 		}
 
-
-
 		public void initializeInstituitions()
 		{
-			List<Institution> newInstList = new List<Institution>();
+			allInstitutions = Institution.generateInstitutionList();
+		}
 
-			foreach (string instName in institutionNames)
-			{
-			//	Institution i = new Institution(instName);
+		public Institution getRandomInstitution()
+		{
+			Random r = new Random();
 
-			//	newInstList.Add(i);
-			}
+			return allInstitutions[r.Next(0, allInstitutions.Count - 1)];
 
-			allInstitutions = newInstList;
 		}
 	}
 

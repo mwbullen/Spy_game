@@ -14,6 +14,8 @@ namespace Spy_game
 
 		public standardAction processInput(string inputStr)
 		{
+			if (inputStr == null ||inputStr == "") { return standardAction.NextTurn;}
+				
 			if (standardActionsHT.ContainsKey(inputStr.ToUpper())) {
 				return (standardAction)standardActionsHT[inputStr.ToUpper()];
 			}

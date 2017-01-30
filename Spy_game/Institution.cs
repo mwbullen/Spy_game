@@ -29,6 +29,8 @@ namespace Spy_game
 				i.sortNumber = x;
 
 				resultList.Add(i);
+
+				x += 1;
 			}
 
 			return resultList;

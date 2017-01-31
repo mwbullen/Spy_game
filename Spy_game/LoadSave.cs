@@ -12,20 +12,32 @@ namespace Spy_game
 
 		public static GameState loadSavedGame()
 		{
-			if (!File.Exists(saveFilePath)) {
+			try
+			{
+				if (!File.Exists(saveFilePath))
+				{
+					return null;
+				}
+
+				BinaryFormatter bf = new BinaryFormatter();
+				FileStream fs = new FileStream(saveFilePath, FileMode.Open);
+
+				GameState resultGamestate = (GameState)bf.Deserialize(fs);
+				fs.Close();
+				return resultGamestate;
+			}
+			catch (Exception ex)
+			{
+				File.Delete(saveFilePath);
+
+				Console.WriteLine("Error loading saved game, creating new game");
 				return null;
 			}
-
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream fs = new FileStream(saveFilePath, FileMode.Open);
-
-			GameState resultGamestate = (GameState)bf.Deserialize(fs);
-			fs.Close();
-			return resultGamestate;
 		}
 
 		public static void saveGameState(GameState gameState)
 		{
+
 			BinaryFormatter bf = new BinaryFormatter();
 
 			FileStream fs = new FileStream(saveFilePath, FileMode.Create);

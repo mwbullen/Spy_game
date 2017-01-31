@@ -12,6 +12,9 @@ namespace Spy_game
 
 		DateTime inGameDate = new DateTime(1961, 1, 1);
 
+		public int cash = 100;
+
+
 		public GameState()
 		{
 			initializeInstituitions();
@@ -20,6 +23,13 @@ namespace Spy_game
 
 			//generateActionList();
 		}
+
+		public void printPlayerStatus()
+		{
+			Console.WriteLine(inGameDate.ToLongDateString());
+			Console.WriteLine("Cash:  $" + cash);
+		}
+
 
 		public void enterInvestigationList()
 		{
@@ -76,7 +86,7 @@ namespace Spy_game
 
 		public void performTurn()
 		{
-			inGameDate = inGameDate.AddDays(1);
+			
 
 			Console.WriteLine("Select activity for day");
 
@@ -107,20 +117,18 @@ namespace Spy_game
 			//gather responses & intelligence
 			//generateActionList();
 
+			inGameDate = inGameDate.AddDays(1);
+
 			Console.WriteLine("Delivering messages to dead drops");
 			//System.Threading.Thread.Sleep(2000);
 			//Console.WriteLine("Investigating Ministry of Defense");
 			//System.Threading.Thread.Sleep(2000);
-			Console.WriteLine("Retrieving dead drop responses");
+			Console.WriteLine("Retrieving intel");
 			//System.Threading.Thread.Sleep(2000);
 
-			printPlayerStatus();
+//			printPlayerStatus();
 		}
 
-		public void printPlayerStatus()
-		{
-			Console.WriteLine(inGameDate.ToLongDateString());
-		}
 
 		public void listCurrentOperatives()
 		{
@@ -129,7 +137,13 @@ namespace Spy_game
 				Console.WriteLine("No agents available");
 			}
 			else {
-				Console.WriteLine("Current agents:");
+				string agentStr = "Agent";
+				if (currentOperatives.Count > 1)
+				{
+					agentStr = "Agents";
+				}
+
+				Console.WriteLine( currentOperatives.Count + " "+ agentStr + ":");
 				foreach (Operative agent in currentOperatives)
 				{
 					//Console.WriteLine(agent.Name);

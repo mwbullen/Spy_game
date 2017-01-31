@@ -12,8 +12,9 @@ namespace Spy_game
 		{
 			initGame();
 
-			string inputStr = "";
+			currentGameState.printPlayerStatus();
 
+			string inputStr = "";
 			while (inputStr != "x")
 			{			 
 				inputStr = getUserInput(inputManager.getActionPrompts);
@@ -38,6 +39,8 @@ namespace Spy_game
 						
 					}
 				}
+
+
 		}
 
 		public static string getUserInput(string prompt)

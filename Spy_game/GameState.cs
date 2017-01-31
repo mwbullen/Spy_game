@@ -12,6 +12,8 @@ namespace Spy_game
 
 		DateTime inGameDate = new DateTime(1961, 1, 1);
 
+		public int totalIntelGenerated;
+
 		public int cash = 100;
 
 
@@ -28,6 +30,7 @@ namespace Spy_game
 		{
 			Console.WriteLine(inGameDate.ToLongDateString());
 			Console.WriteLine("Cash:  $" + cash);
+			Console.WriteLine("Intelligence gathered: " + totalIntelGenerated);
 		}
 
 
@@ -137,6 +140,7 @@ namespace Spy_game
 			foreach (Operative agent in currentOperatives)
 			{
 				int intelQuantity = agent.getDailyIntelProduct();
+				totalIntelGenerated += intelQuantity;
 
 				Console.WriteLine("Asset " + agent.agentNumber + " delivered " + intelQuantity + " documents");
 			}

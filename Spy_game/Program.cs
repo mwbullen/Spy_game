@@ -12,11 +12,13 @@ namespace Spy_game
 		{
 			initGame();
 
-			currentGameState.printPlayerStatus();
+
 
 			string inputStr = "";
 			while (inputStr != "x")
 			{			 
+				currentGameState.printPlayerStatus();
+
 				inputStr = getUserInput(inputManager.getActionPrompts);
 
 				InputManager.standardAction action =  inputManager.processInput(inputStr);

@@ -47,8 +47,13 @@ namespace Spy_game
 			if (recruitRoll <= targetInst.recruitChance)
 			{
 				//successful
+				Console.WriteLine("You spend the day investigating " + targetInst.Name + " and find a new asset!");
 				currentOperatives.Add(new Operative(this, targetInst));
 				LoadSave.saveGameState(this);
+
+			}
+			else {//fail
+				Console.WriteLine("You spend the day investigating " + targetInst.Name + " but do not find any new assets");
 
 			}
 

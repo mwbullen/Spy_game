@@ -10,6 +10,8 @@ namespace Spy_game
 		public List<Operative> currentOperatives;
 		public List<Institution> allInstitutions;
 
+		DateTime inGameDate = new DateTime(1961, 1, 1);
+
 		public GameState()
 		{
 			initializeInstituitions();
@@ -74,6 +76,7 @@ namespace Spy_game
 
 		public void performTurn()
 		{
+			inGameDate = inGameDate.AddDays(1);
 
 			Console.WriteLine("Select activity for day");
 
@@ -111,6 +114,12 @@ namespace Spy_game
 			Console.WriteLine("Retrieving dead drop responses");
 			//System.Threading.Thread.Sleep(2000);
 
+			printPlayerStatus();
+		}
+
+		public void printPlayerStatus()
+		{
+			Console.WriteLine(inGameDate.ToLongDateString());
 		}
 
 		public void listCurrentOperatives()

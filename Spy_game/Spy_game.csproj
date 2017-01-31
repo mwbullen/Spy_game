@@ -41,6 +41,7 @@
     <Compile Include="LoadSave.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Operative.cs" />
+    <Compile Include="Quest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

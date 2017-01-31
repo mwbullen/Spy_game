@@ -119,16 +119,28 @@ namespace Spy_game
 
 			inGameDate = inGameDate.AddDays(1);
 
-			Console.WriteLine("Delivering messages to dead drops");
+			//Console.WriteLine("Delivering messages to dead drops");
 			//System.Threading.Thread.Sleep(2000);
 			//Console.WriteLine("Investigating Ministry of Defense");
 			//System.Threading.Thread.Sleep(2000);
-			Console.WriteLine("Retrieving intel");
+			Console.WriteLine("Collecting intel");
+			generateDailyIntel();
+
 			//System.Threading.Thread.Sleep(2000);
 
 //			printPlayerStatus();
 		}
 
+		void generateDailyIntel()
+		{
+			//calculate daily intel product for each operative
+			foreach (Operative agent in currentOperatives)
+			{
+				int intelQuantity = agent.getDailyIntelProduct();
+
+				Console.WriteLine("Asset " + agent.agentNumber + " delivered " + intelQuantity + " documents");
+			}
+		}
 
 		public void listCurrentOperatives()
 		{

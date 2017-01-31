@@ -19,7 +19,7 @@ namespace Spy_game
 			//generateActionList();
 		}
 
-		public void generateInvestigationList()
+		public void enterInvestigationList()
 		{
 			Console.WriteLine("Select department to investigate: ");
 
@@ -30,38 +30,66 @@ namespace Spy_game
 
 			string inputStr = Console.ReadLine();
 
+			Institution targetInstitution = getInstitutionforSortNumber(int.Parse(inputStr));
 
+			if (targetInstitution != null)
+			{
+				investigateInstitution(targetInstitution);
+			}
+		}
+
+		public void investigateInstitution(Institution targetInst)
+		{
+			Random r = new Random();
+
+			int recruitRoll = r.Next(0, 100);
+
+			if (recruitRoll <= targetInst.recruitChance)
+			{
+				//successful
+				currentOperatives.Add(new Operative(this, targetInst));
+				LoadSave.saveGameState(this);
+
+			}
+
+		}
+
+		Institution getInstitutionforSortNumber(int sortNumber)
+		{
+			foreach (Institution i in allInstitutions)
+			{
+				if (i.sortNumber == sortNumber)
+				{
+					return i;
+				}
+			}
+
+			return null;
 		}
 
 		public void performTurn()
 		{
-			Hashtable inputChoices = new Hashtable();
 
 			Console.WriteLine("Select activity for day");
 
-			inputChoices.Add(1, "Investigate organization");
-			inputChoices.Add(2, "Burglaries");
-
-			foreach (int k in inputChoices.Keys)
-			{
-				Console.WriteLine("[" + k + "]" + inputChoices[k]);
-
-			}
+			Console.WriteLine("[1] Investigate organization (to recruit new assets)");
+			Console.WriteLine("[2] Shadow assets (to learn more about them)");
+			Console.WriteLine("[3] Burglarize assets residence (to learn more about them, once their address is known)");
 
 			string inputStr = Console.ReadLine();
 
 			int inputInt = int.Parse(inputStr);
 
-			if (inputInt == 1)
+			switch (inputInt)
 			{
-				generateInvestigationList();
-			}
-			else if (inputInt == 2)
-			{
-				//burglaries
-			}
-			else {
-				//command not found
+				case 1:
+					enterInvestigationList();
+					break;
+				case 2:
+					//follow suspect 
+					break;
+				case 3:
+					break;
 			}
 
 

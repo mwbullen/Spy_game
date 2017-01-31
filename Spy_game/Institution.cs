@@ -9,6 +9,8 @@ namespace Spy_game
 		public string Name;
 		public int sortNumber;
 
+		public  int recruitChance = 30;
+
 		static string[] institutionNames = { "Security Services", "Housing Authority", "Automotive Registry", "National Bank", "Military Procurement", "Education ", "Information and Press", "Construction", "Prisons" };
 
 		public Institution(string newName)

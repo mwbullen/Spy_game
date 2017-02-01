@@ -32,9 +32,21 @@ namespace Spy_game
 			Console.WriteLine("Intelligence gathered: " + totalIntelGenerated);
 		}
 
-		public bool enterInvestigationList()
+		public Operative selectAsset(string prompt)
 		{
-			Console.WriteLine("Select department to investigate: ");
+			Console.WriteLine(prompt);
+
+			foreach (Operative o in currentOperatives)
+			{
+				Console.WriteLine("[" + o.agentNumber + "]  " + o.realName);
+			}
+
+			return null;
+		}
+
+		public Institution selectInstitution(string prompt)
+		{
+			Console.WriteLine(prompt);
 
 			foreach (Institution i in allInstitutions)
 			{
@@ -49,15 +61,15 @@ namespace Spy_game
 
 				if (targetInstitution != null)
 				{
-					investigateInstitution(targetInstitution);
+					//investigateInstitution(targetInstitution);
+					return targetInstitution;
 				}
 				else {
-					return false;
+					return null;
 				}
 			}
 
-			return false;
-			
+			return null;
 		}
 
 		public void investigateInstitution(Institution targetInst)
@@ -98,12 +110,11 @@ namespace Spy_game
 		{
 			Console.WriteLine("Select action");
 
-			Console.WriteLine("[1] Investigate organization (to recruit new assets)");
-			Console.WriteLine("[2] Shadow assets (to learn more about them)");
-			Console.WriteLine("[3] Burglarize assets residence (to learn more about them, once their address is known)");
+			Console.WriteLine("[1] Investigate organization (attempt to find new assets)");
+			Console.WriteLine("[2] Shadow assets (get more information about assets)");
+			Console.WriteLine("[3] Burglarize assets residence (learn more about them, once their address is known)");
 
 			string inputStr = Console.ReadLine();
-
 			int inputInt;
 
 			if (int.TryParse(inputStr, out inputInt))
@@ -111,15 +122,22 @@ namespace Spy_game
 				switch (inputInt)
 				{
 					case 1:
-						if (enterInvestigationList() == true)
+						//if (enterInvestigationList() == true)
+
+						Institution targetInstitution = selectInstitution("Select institution to investigate");
+						if (targetInstitution != null)
 						{
+							investigateInstitution(targetInstitution);
 							return true;
 						}
+
 						Console.WriteLine("Command not found");
 						return false;
 						
 					case 2:
 						//follow suspect 
+						Operative targetAsset = selectAsset("Select asset to shadow");
+
 						return true;
 					case 3:
 						return true;

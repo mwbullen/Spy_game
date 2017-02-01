@@ -43,6 +43,7 @@
     <Compile Include="Operative.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="NameGenerator.cs" />
+    <Compile Include="Name.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FirstNames_Female.txt">

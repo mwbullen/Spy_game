@@ -191,7 +191,7 @@ namespace Spy_game
 				int intelQuantity = agent.getDailyIntelProduct();
 				totalIntelGenerated += intelQuantity;
 
-				Console.WriteLine("Asset " + agent.agentNumber + " delivered " + intelQuantity + " documents");
+				Console.WriteLine("Asset " + agent.realName.ToString() + " delivered " + intelQuantity + " documents");
 			}
 		}
 

@@ -13,7 +13,6 @@ namespace Spy_game
 		DateTime inGameDate = new DateTime(1961, 1, 1);
 
 		public int totalIntelGenerated;
-
 		public int cash = 100;
 
 
@@ -29,12 +28,11 @@ namespace Spy_game
 		public void printPlayerStatus()
 		{
 			Console.WriteLine(inGameDate.ToLongDateString());
-			Console.WriteLine("Cash:  $" + cash);
+//			Console.WriteLine("Cash:  $" + cash);
 			Console.WriteLine("Intelligence gathered: " + totalIntelGenerated);
 		}
 
-
-		public void enterInvestigationList()
+		public bool enterInvestigationList()
 		{
 			Console.WriteLine("Select department to investigate: ");
 
@@ -44,13 +42,22 @@ namespace Spy_game
 			}
 
 			string inputStr = Console.ReadLine();
+			int inputInt;
 
-			Institution targetInstitution = getInstitutionforSortNumber(int.Parse(inputStr));
+			if (int.TryParse(inputStr, out inputInt)) {
+				Institution targetInstitution = getInstitutionforSortNumber(int.Parse(inputStr));
 
-			if (targetInstitution != null)
-			{
-				investigateInstitution(targetInstitution);
+				if (targetInstitution != null)
+				{
+					investigateInstitution(targetInstitution);
+				}
+				else {
+					return false;
+				}
 			}
+
+			return false;
+			
 		}
 
 		public void investigateInstitution(Institution targetInst)
@@ -104,8 +111,13 @@ namespace Spy_game
 				switch (inputInt)
 				{
 					case 1:
-						enterInvestigationList();
-						return true;				
+						if (enterInvestigationList() == true)
+						{
+							return true;
+						}
+						Console.WriteLine("Command not found");
+						return false;
+						
 					case 2:
 						//follow suspect 
 						return true;
@@ -149,7 +161,6 @@ namespace Spy_game
 				//			printPlayerStatus();
 			}
 			else {//reset
-				performTurn();
 			}
 
 		}

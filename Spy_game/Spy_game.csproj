@@ -43,5 +43,10 @@
     <Compile Include="Operative.cs" />
     <Compile Include="Quest.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="FirstNames_Female.txt" />
+    <None Include="FirstNames_Male.txt" />
+    <None Include="LastNames.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

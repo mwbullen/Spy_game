@@ -87,11 +87,9 @@ namespace Spy_game
 			return null;
 		}
 
-		public void performTurn()
+		public bool enterSelectActionChoice()
 		{
-			
-
-			Console.WriteLine("Select activity for day");
+			Console.WriteLine("Select action");
 
 			Console.WriteLine("[1] Investigate organization (to recruit new assets)");
 			Console.WriteLine("[2] Shadow assets (to learn more about them)");
@@ -99,39 +97,61 @@ namespace Spy_game
 
 			string inputStr = Console.ReadLine();
 
-			int inputInt = int.Parse(inputStr);
+			int inputInt;
 
-			switch (inputInt)
+			if (int.TryParse(inputStr, out inputInt))
 			{
-				case 1:
-					enterInvestigationList();
-					break;
-				case 2:
-					//follow suspect 
-					break;
-				case 3:
-					break;
+				switch (inputInt)
+				{
+					case 1:
+						enterInvestigationList();
+						return true;				
+					case 2:
+						//follow suspect 
+						return true;
+					case 3:
+						return true;
+				}
+
+			}
+			else {
+				Console.WriteLine("Command not found");
+				return false;
 			}
 
+			return false;
+		}
 
+		public void performTurn()
+		{
 
-			//deposit messages
-			//perform day's activity
-			//gather responses & intelligence
-			//generateActionList();
+			if (enterSelectActionChoice())
+			{
 
-			inGameDate = inGameDate.AddDays(1);
+				//deposit messages
+				//perform day's activity
+				//gather responses & intelligence
+				//generateActionList();
 
-			//Console.WriteLine("Delivering messages to dead drops");
-			//System.Threading.Thread.Sleep(2000);
-			//Console.WriteLine("Investigating Ministry of Defense");
-			//System.Threading.Thread.Sleep(2000);
-			Console.WriteLine("Collecting intel");
-			generateDailyIntel();
+				inGameDate = inGameDate.AddDays(1);
 
-			//System.Threading.Thread.Sleep(2000);
+				//Console.WriteLine("Delivering messages to dead drops");
+				//System.Threading.Thread.Sleep(2000);
+				//Console.WriteLine("Investigating Ministry of Defense");
+				//System.Threading.Thread.Sleep(2000);
+				Console.WriteLine("Collecting intel");
+				generateDailyIntel();
 
-//			printPlayerStatus();
+				Console.WriteLine("-------------------------------");
+
+				//System.Threading.Thread.Sleep(2000);
+
+				//			printPlayerStatus();
+			}
+			else {//reset
+				performTurn();
+			}
+
 		}
 
 		void generateDailyIntel()
@@ -148,6 +168,7 @@ namespace Spy_game
 
 		public void listCurrentOperatives()
 		{
+			Console.WriteLine("-------------------------------");
 			if (currentOperatives.Count == 0)
 			{
 				Console.WriteLine("No agents available");
@@ -166,6 +187,7 @@ namespace Spy_game
 					agent.printOperativeDetails();
 				}
 			}
+			Console.WriteLine("-------------------------------");
 		}
 
 		public void initializeInstituitions()

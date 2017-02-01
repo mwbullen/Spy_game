@@ -19,26 +19,31 @@ namespace Spy_game
 			{			 
 				currentGameState.printPlayerStatus();
 
-				inputStr = getUserInput(inputManager.getActionPrompts);
+				//inputStr = getUserInput(inputManager.getActionPrompts);
 
-				InputManager.standardAction action =  inputManager.processInput(inputStr);
+				//InputManager.standardAction action =  inputManager.processInput(inputStr);
 
-				switch (action)
+				inputStr = getUserInput("List assets, [NextTurn]");
+
+
+				switch (inputStr.ToUpper())
 					{
-						case InputManager.standardAction.ListAgents:
+					//case InputManager.standardAction.ListAssets:
+					case "L":
 							currentGameState.listCurrentOperatives();
 							break;
 
-						case InputManager.standardAction.NextTurn:
+					case "":
+					case "N":
 							currentGameState.performTurn();
 							break;
-						case InputManager.standardAction.NewGame:
+					case "NEW":
+							Console.Clear();
 							LoadSave.newGame();
 							break;
-						case InputManager.standardAction.CommandNotFound:
+					default:
 							Console.WriteLine("Command not found: " + inputStr);
 							break;
-						
 					}
 				}
 

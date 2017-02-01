@@ -60,6 +60,7 @@ namespace Spy_game
 
 		public static void initGame()
 		{
+			NameGenerator.loadNames();
 			currentGameState = LoadSave.loadSavedGame();
 			if (currentGameState == null)
 			{

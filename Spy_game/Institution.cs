@@ -9,6 +9,7 @@ namespace Spy_game
 		public string Name;
 		public int sortNumber;
 
+		public int paranoiaModifier;  //assets at high-security orgs will be more paranoid than lower-security orgs
 		public  int recruitChance = 30;
 
 		static string[] institutionNames = { "Security Services", "Housing Authority", "Automotive Registry", "National Bank", "Military Procurement", "Education ", "Information and Press", "Construction", "Prisons" };

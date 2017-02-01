@@ -200,13 +200,13 @@ namespace Spy_game
 			Console.WriteLine("-------------------------------");
 			if (currentOperatives.Count == 0)
 			{
-				Console.WriteLine("No agents available");
+				Console.WriteLine("No assets available");
 			}
 			else {
-				string agentStr = "Agent";
+				string agentStr = "Asset";
 				if (currentOperatives.Count > 1)
 				{
-					agentStr = "Agents";
+					agentStr = "Assets";
 				}
 
 				Console.WriteLine( currentOperatives.Count + " "+ agentStr + ":");

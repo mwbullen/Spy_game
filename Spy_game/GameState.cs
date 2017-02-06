@@ -170,7 +170,7 @@ namespace Spy_game
 				//Console.WriteLine("Investigating Ministry of Defense");
 				//System.Threading.Thread.Sleep(2000);
 				Console.WriteLine("Collecting intel");
-				generateDailyIntel();
+				//generateDailyIntel();
 
 				Console.WriteLine("-------------------------------");
 
@@ -188,10 +188,13 @@ namespace Spy_game
 			//calculate daily intel product for each operative
 			foreach (Operative agent in currentOperatives)
 			{
-				int intelQuantity = agent.getDailyIntelProduct();
-				totalIntelGenerated += intelQuantity;
+				if (agent.currentTask == Operative.assetTask.gatheringIntel)
+				{
+					int intelQuantity = agent.getDailyIntelProduct();
+					totalIntelGenerated += intelQuantity;
 
-				Console.WriteLine("Asset " + agent.realName.ToString() + " delivered " + intelQuantity + " documents");
+					Console.WriteLine("Asset " + agent.realName.ToString() + " delivered " + intelQuantity + " documents");
+				}
 			}
 		}
 
